@@ -1,4 +1,4 @@
-// Import the necessary Java synchronization and scheduling classes.
+
 
 package edu.vuum.mocca;
 
@@ -23,13 +23,29 @@ class SimpleAtomicLong
     /**
      * The ReentrantReadWriteLock used to serialize access to mValue.
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     // TODO - add the implementation
+=======
+
+    // TODO -- you fill in here by replacing the null with an
+    // initialization of ReentrantReadWriteLock.
+    private ReentrantReadWriteLock mRWLock = new ReentrantReadWriteLock();
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
 
     /**
      * Creates a new SimpleAtomicLong with the given initial value.
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public SimpleAtomicLong(long initialValue) {
         // TODO - you fill in here
+=======
+    public SimpleAtomicLong(long initialValue)
+    {
+        // TODO -- you fill in here
+    	mRWLock.writeLock().lock();
+    	mValue = initialValue;
+    	mRWLock.writeLock().unlock();
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 
     /**
@@ -37,8 +53,21 @@ class SimpleAtomicLong
      * 
      * @returns The current value
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public long get() {
         // TODO - you fill in here
+=======
+    public long get()
+    {
+        long value;
+
+        // TODO -- you fill in here
+        mRWLock.readLock().lock();
+        value = mValue;
+        mRWLock.readLock().unlock();
+
+        return value;
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 
     /**
@@ -46,8 +75,21 @@ class SimpleAtomicLong
      *
      * @returns the updated value
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public long decrementAndGet() {
         // TODO - you fill in here
+=======
+    public long decrementAndGet()
+    {
+        long value = 0;
+
+        // TODO -- you fill in here
+    	mRWLock.writeLock().lock();
+    	value = --mValue;
+    	mRWLock.writeLock().unlock();
+
+        return value;
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 
     /**
@@ -55,8 +97,21 @@ class SimpleAtomicLong
      *
      * @returns the previous value
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public long getAndIncrement() {
         // TODO - you fill in here
+=======
+    public long getAndIncrement()
+    {
+        long value = 0;
+
+        // TODO -- you fill in here
+    	mRWLock.writeLock().lock();
+    	value = mValue++;
+    	mRWLock.writeLock().unlock();
+
+        return value;
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 
     /**
@@ -64,8 +119,21 @@ class SimpleAtomicLong
      *
      * @returns the previous value
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public long getAndDecrement() {
         // TODO - you fill in here
+=======
+    public long getAndDecrement()
+    {
+        long value = 0;
+
+        // TODO -- you fill in here
+    	mRWLock.writeLock().lock();
+    	value = mValue--;
+    	mRWLock.writeLock().unlock();
+
+        return value;
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 
     /**
@@ -73,8 +141,21 @@ class SimpleAtomicLong
      *
      * @returns the updated value
      */
+<<<<<<< Updated upstream:assignments/week-3-assignment-2/src/edu/vuum/mocca/SimpleAtomicLong.java
     public long incrementAndGet() {
         // TODO - you fill in here
+=======
+    public long incrementAndGet()
+    {
+        long value = 0;
+
+        // TODO -- you fill in here
+    	mRWLock.writeLock().lock();
+    	value = ++mValue;
+    	mRWLock.writeLock().unlock();
+
+        return value;
+>>>>>>> Stashed changes:assignments/week-3-assignment-2/src/SimpleAtomicLong.java
     }
 }
 
