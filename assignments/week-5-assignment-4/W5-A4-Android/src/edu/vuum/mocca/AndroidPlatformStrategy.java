@@ -61,7 +61,7 @@ public class AndroidPlatformStrategy extends PlatformStrategy
     	//LKA what if get returns null?
     	mActivity.get().runOnUiThread(new Runnable(){
             public void run() {
-            	mTextViewOutput.append(outputString);
+            	mTextViewOutput.append(outputString+"\n");
             }
         });
     }
