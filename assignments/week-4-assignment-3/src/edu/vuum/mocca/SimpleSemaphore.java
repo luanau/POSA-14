@@ -55,8 +55,6 @@ public class SimpleSemaphore {
     	try {
             while (mPermits <= 0) {mNotEmpty.await();}
             --mPermits;
-            mNotEmpty.signalAll();
-    		
     	}
     	finally {
     		mLock.unlock();
@@ -75,8 +73,6 @@ public class SimpleSemaphore {
     	try {
             while (mPermits <= 0) {mNotEmpty.awaitUninterruptibly();}
             --mPermits;
-            mNotEmpty.signalAll();
-    		
     	}
     	finally {
     		mLock.unlock();
@@ -91,7 +87,7 @@ public class SimpleSemaphore {
     	mLock.lock();
     	try {
     		++mPermits;
-    		mNotEmpty.signalAll();
+    		mNotEmpty.signal();
     	}
     	finally {
     		mLock.unlock();
