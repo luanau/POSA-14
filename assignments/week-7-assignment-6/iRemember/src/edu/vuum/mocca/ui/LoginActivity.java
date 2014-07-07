@@ -26,7 +26,7 @@ public class LoginActivity extends StoryActivityBase{
 	EditText mPassword;
 	
 	// Make sure we use maximum security to store login credentials
-	static final int MAX_SECURITY = Integer.MAX_VALUE;
+	static final int MAX_SECURITY = StorageUtilities.SECURITY_PRIVATE; //CHANGED. Use internal storage instead of external public storage to store login info. 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
